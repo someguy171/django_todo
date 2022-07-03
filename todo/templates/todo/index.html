@@ -1,0 +1,32 @@
+<h1>To-Do List</h1>
+
+{% if homework_list %}
+    <ul>
+    {% for homework in homework_list %}
+        <li><a href="{% url 'todo:detail' homework.id %}">{{ homework.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No homeworks!</p>
+{% endif %}
+
+<h2>Add new Homework</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ hw_form.as_p }}
+    <input type="submit" value="Submit" name="homework_submit">
+</form>
+
+<h2>Add new Class</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ lesson_form.as_p }}
+    <input type="submit" value="Submit" name="class_submit">
+</form>
+
+<h2>Sync with Show My Homework</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ fetch_form.as_p }}
+    <input type="submit" value="Submit" name="fetch_submit">
+</form>

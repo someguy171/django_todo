@@ -1,0 +1,14 @@
+<ul>
+    <li>{{homework.title}}</li>
+    <li>{{homework.lesson}}</li>
+    <li>{{homework.due_date}}</li>
+    <li>{{homework.description}}</li>
+    <li>{{homework.attachment}}</li>
+    <li>{{homework.link}}</li>
+    <li>{{homework.reminder}}</li>
+</ul>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+</form>
